@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExtreemFoundation | Website Requests</title>
+  <meta name="description" content="Request a website from ExtreemFoundation." />
+
+  <style>
+    :root {
+      --bg: #0c1020;
+      --panel: #11182d;
+      --panel-light: #17213c;
+      --text: #f7f8ff;
+      --muted: #aeb7d1;
+      --line: rgba(255, 255, 255, 0.13);
+      --accent: #6a5cff;
+      --accent2: #52d6bb;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(106, 92, 255, 0.32), transparent 34%),
+        radial-gradient(circle at 90% 16%, rgba(82, 214, 187, 0.13), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(12, 16, 32, 0.62);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 1.1rem;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #8a70ff);
+      color: white;
+      font-weight: 800;
+      font-size: 0.96rem;
+      box-shadow: 0 14px 30px rgba(106, 92, 255, 0.28);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(106, 92, 255, 0.38);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .hero {
+      padding: 72px 0 54px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .tag {
+      width: fit-content;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      max-width: 720px;
+      font-size: clamp(2.5rem, 7vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+    }
+
+    .hero p {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 1.14rem;
+      max-width: 620px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .notes {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .note {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 1.05rem;
+    }
+
+    .note span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .preview-shell {
+      padding: 14px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .preview {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #080c19;
+      border: 1px solid var(--line);
+    }
+
+    .preview-top {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.34);
+    }
+
+    .preview-body {
+      padding: 24px;
+    }
+
+    .mock-title {
+      height: 20px;
+      width: 62%;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      margin-bottom: 14px;
+    }
+
+    .mock-line {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.11);
+      margin-bottom: 10px;
+    }
+
+    .mock-line.short {
+      width: 72%;
+    }
+
+    .mock-boxes {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .mock-box {
+      min-height: 112px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.055);
+      padding: 15px;
+    }
+
+    .mock-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(106, 92, 255, 0.75), rgba(82, 214, 187, 0.65));
+      margin-bottom: 14px;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.05rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.065);
+      min-height: 215px;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(106, 92, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .icon::after {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+
+    .card h3 {
+      margin: 0 0 9px;
+      font-size: 1.22rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .request-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .request-copy {
+      padding: 30px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(106, 92, 255, 0.22), rgba(82, 214, 187, 0.08)),
+        rgba(255, 255, 255, 0.065);
+    }
+
+    .request-copy h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.05rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .request-copy p,
+    .request-copy li {
+      color: var(--muted);
+    }
+
+    .request-copy ul {
+      margin: 20px 0 0;
+      padding-left: 20px;
+    }
+
+    .form-card {
+      padding: 26px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.085);
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 9px;
+      font-weight: 800;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .radio-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .radio-card {
+      flex: 1 1 150px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 13px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(8, 12, 25, 0.55);
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      accent-color: var(--accent);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 170px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(8, 12, 25, 0.78);
+      color: var(--text);
+      padding: 15px 16px;
+      outline: none;
+      font: inherit;
+    }
+
+    textarea:focus {
+      border-color: rgba(82, 214, 187, 0.7);
+      box-shadow: 0 0 0 4px rgba(82, 214, 187, 0.1);
+    }
+
+    .hint {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .status {
+      display: none;
+      margin-top: 15px;
+      padding: 14px;
+      border-radius: 16px;
+      font-weight: 700;
+    }
+
+    .status.show {
+      display: block;
+    }
+
+    .status.good {
+      color: #e1fff8;
+      background: rgba(82, 214, 187, 0.1);
+      border: 1px solid rgba(82, 214, 187, 0.34);
+    }
+
+    .status.bad {
+      color: #ffdddd;
+      background: rgba(255, 100, 100, 0.1);
+      border: 1px solid rgba(255, 100, 100, 0.34);
+    }
+
+    iframe {
+      width: 0;
+      height: 0;
+      border: 0;
+      opacity: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 40px 0 62px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .request-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 24px, 1080px);
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .notes,
+      .cards,
+      .mock-boxes {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="ExtreemFoundation home">
+        <img src="logo.png" alt="ExtreemFoundation logo">
+        <span>ExtreemFoundation</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main links">
+        <a href="#what">What we build</a>
+        <a href="#request">Request a site</a>
+      </nav>
+
+      <a class="btn" href="#request">Start request</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <div class="tag">Websites for school, clubs, projects, and small businesses</div>
+        <h1>Need a website? Tell us what you’re trying to make.</h1>
+        <p>
+          ExtreemFoundation helps turn simple ideas into clean websites. You explain the problem,
+          what the site should do, and who it is for. We use that to understand what needs to be built.
+        </p>
+
+        <div class="actions">
+          <a class="btn" href="#request">Request a site</a>
+          <a class="btn secondary" href="#what">See examples</a>
+        </div>
+
+        <div class="notes">
+          <div class="note">
+            <strong>Clear pages</strong>
+            <span>Easy sections, buttons, and contact info.</span>
+          </div>
+          <div class="note">
+            <strong>Mobile friendly</strong>
+            <span>Made to work well on phones and laptops.</span>
+          </div>
+          <div class="note">
+            <strong>Built with purpose</strong>
+            <span>The site is based on what you actually need.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-shell" aria-label="Website preview">
+        <div class="preview">
+          <div class="preview-top">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="preview-body">
+            <div class="mock-title"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line short"></div>
+
+            <div class="mock-boxes">
+              <div class="mock-box">
+                <div class="mock-mark"></div>
+                <div class="mock-line"></div>
+                <div class="mock-line short"></div>
+              </div>
+              <div class="mock-box">
+                <div class="mock-mark"></div>
+                <div class="mock-line"></div>
+                <div class="mock-line short"></div>
+              </div>
+              <div class="mock-box">
+                <div class="mock-mark"></div>
+                <div class="mock-line"></div>
+                <div class="mock-line short"></div>
+              </div>
+              <div class="mock-box">
+                <div class="mock-mark"></div>
+                <div class="mock-line"></div>
+                <div class="mock-line short"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="what">
+      <div class="section-head">
+        <h2>What we can build</h2>
+        <p>
+          These are the kinds of websites that usually make sense for ExtreemFoundation requests.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon"></div>
+          <h3>Project websites</h3>
+          <p>
+            A simple page for a school project, community idea, competition, club, or event.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon"></div>
+          <h3>Information pages</h3>
+          <p>
+            A clean place to put details, links, contact info, updates, and answers to common questions.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon"></div>
+          <h3>Basic web tools</h3>
+          <p>
+            Small features like forms, resource lists, buttons, menus, galleries, or simple calculators.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="request">
+      <div class="request-grid">
+        <div class="request-copy">
+          <h2>Send a website request</h2>
+          <p>
+            Fill this out and it submits straight to the ExtreemFoundation Google Form in the background.
+          </p>
+
+          <ul>
+            <li>Explain the problem clearly.</li>
+            <li>Say who the website is for.</li>
+            <li>Mention anything you want on the site, like pages, forms, links, or buttons.</li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <form
+            id="siteRequestForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfaprONeobPWH49PIZBmT4lne7Zw4KMDVeaTna1OgmQOgD5Uw/formResponse"
+            method="POST"
+            target="hidden_iframe"
+          >
+            <div class="field">
+              <label>Is this website for educational purposes? *</label>
+              <div class="radio-row">
+                <label class="radio-card">
+                  <input type="radio" name="entry.51091424" value="Yes" checked>
+                  Yes
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="entry.51091424" value="No">
+                  No
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="problem">Explain your problem and what you want to solve *</label>
+              <textarea
+                id="problem"
+                name="entry.1971538242"
+                placeholder="Example: My club needs a site where people can see what we do, find events, and contact us."
+                required
+              ></textarea>
+              <div class="hint">A few sentences is enough. Just be specific.</div>
+            </div>
+
+            <button class="btn" type="submit" id="submitBtn">Submit request</button>
+
+            <div class="status good" id="successBox">
+              Submitted. Your request was sent.
+            </div>
+
+            <div class="status bad" id="errorBox">
+              Add a quick explanation first.
+            </div>
+          </form>
+
+          <iframe name="hidden_iframe" id="hidden_iframe"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div>
+      <strong>ExtreemFoundation</strong><br>
+      Websites for ideas that need a real place online.
+    </div>
+    <div>
+      Built to keep requests simple and clear.
+    </div>
+  </footer>
+
+  <script>
+    const form = document.querySelector("#siteRequestForm");
+    const problem = document.querySelector("#problem");
+    const submitBtn = document.querySelector("#submitBtn");
+    const successBox = document.querySelector("#successBox");
+    const errorBox = document.querySelector("#errorBox");
+
+    form.addEventListener("submit", function (event) {
+      successBox.classList.remove("show");
+      errorBox.classList.remove("show");
+
+      if (!problem.value.trim()) {
+        event.preventDefault();
+        errorBox.classList.add("show");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+
+      setTimeout(function () {
+        successBox.classList.add("show");
+        form.reset();
+        document.querySelector("input[value='Yes']").checked = true;
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit request";
+      }, 900);
+    });
+  </script>
+</body>
+</html>
